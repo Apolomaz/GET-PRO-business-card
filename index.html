@@ -10,6 +10,23 @@
   <link rel="manifest" href="manifest.json" />
   <title>Apolo Arellano — Get Pro Landscaping</title>
   <meta name="description" content="Apolo Arellano — Estimator at Get Pro Landscaping. Contact: apolo@getprolandscaping.net | 408-421-0653" />
+  <!-- Link previews must be present in the HTML for messaging-app crawlers. -->
+  <link rel="canonical" href="https://apolomaz.github.io/GET-PRO-business-card/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Get Pro Landscaping" />
+  <meta property="og:title" content="Apolo Arellano — Get Pro Landscaping" />
+  <meta property="og:description" content="Estimator · 408-421-0653 · apolo@getprolandscaping.net. View my digital business card and get in touch." />
+  <meta property="og:url" content="https://apolomaz.github.io/GET-PRO-business-card/" />
+  <meta property="og:image" content="https://apolomaz.github.io/GET-PRO-business-card/business-card-preview.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Apolo Arellano, Estimator at Get Pro Landscaping. 408-421-0653. apolo@getprolandscaping.net." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Apolo Arellano — Get Pro Landscaping" />
+  <meta name="twitter:description" content="Estimator · 408-421-0653 · apolo@getprolandscaping.net. View my digital business card and get in touch." />
+  <meta name="twitter:image" content="https://apolomaz.github.io/GET-PRO-business-card/business-card-preview.png" />
+  <meta name="twitter:image:alt" content="Apolo Arellano, Estimator at Get Pro Landscaping. 408-421-0653. apolo@getprolandscaping.net." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root{
@@ -117,17 +134,20 @@
       document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});
     });
 
+    // Share the canonical card URL, without fragments or tracking parameters.
+    var cardUrl = document.querySelector('link[rel="canonical"]').href;
+
     // share functionality
     document.getElementById('shareBtn').addEventListener('click', function(){
       if (navigator.share) {
         navigator.share({
           title: 'Apolo Arellano — Get Pro Landscaping',
           text: 'Check out my business card',
-          url: window.location.href
+          url: cardUrl
         }).catch(console.error);
       } else {
         // Fallback: copy URL to clipboard
-        navigator.clipboard.writeText(window.location.href).then(function() {
+        navigator.clipboard.writeText(cardUrl).then(function() {
           alert('Link copied to clipboard!');
         }).catch(function() {
           alert('Share not supported on this device.');
